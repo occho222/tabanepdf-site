@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TabanePDF — バラバラの書類を、1冊のPDFに。</title>
+<meta name="description" content="Word・Excel・PowerPoint・PDFが混在するフォルダを、しおり・ページ番号付きの1冊のPDFへ。工事書類・提出書類の一冊化を2クリックで。Windows用アプリ。">
+<meta property="og:title" content="TabanePDF — バラバラの書類を、1冊のPDFに。">
+<meta property="og:description" content="Word・Excel・PowerPoint・PDFの混在フォルダを、しおり・ページ番号付きの1冊のPDFへ。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://occho222.github.io/tabanepdf-site/assets/screenshot-2.png">
+<link rel="icon" href="assets/icon-256.png">
+<style>
+  :root {
+    --primary: #1B6EC2; --primary-dark: #155A9E; --primary-light: #E7F0FA;
+    --text: #24292F; --muted: #6B7280; --border: #D0D7DE; --panel: #F6F8FA;
+    --accent: #E5484D;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: "Yu Gothic UI", "Segoe UI", "Meiryo UI", sans-serif; color: var(--text); line-height: 1.9; background: white; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+  a { color: var(--primary); }
+
+  /* Hero */
+  .hero { background: linear-gradient(135deg, #1B6EC2 0%, #3D8BD9 100%); color: white; padding: 64px 0 72px; text-align: center; }
+  .hero img.logo { width: 110px; height: 110px; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.25)); }
+  .hero h1 { font-size: 40px; margin: 18px 0 4px; letter-spacing: 1px; }
+  .hero .tagline { font-size: 21px; font-weight: bold; opacity: 0.95; }
+  .hero .sub { margin-top: 12px; font-size: 15px; opacity: 0.85; }
+  .cta { display: inline-block; margin-top: 28px; background: white; color: var(--primary-dark); font-weight: bold; font-size: 17px;
+         padding: 14px 36px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+  .cta:hover { transform: translateY(-2px); }
+  .cta-note { margin-top: 10px; font-size: 13px; opacity: 0.8; }
+
+  section { padding: 56px 0; }
+  section:nth-of-type(even) { background: var(--panel); }
+  h2 { text-align: center; font-size: 27px; margin-bottom: 8px; }
+  .lead { text-align: center; color: var(--muted); margin-bottom: 36px; }
+
+  /* Screenshot */
+  .shot { display: block; max-width: 100%; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 12px 40px rgba(27,110,194,0.15); margin: 0 auto; }
+
+  /* Flow */
+  .flow { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; }
+  .flow .step { flex: 1 1 260px; max-width: 300px; background: white; border: 1px solid var(--border); border-radius: 10px; padding: 22px; text-align: center; }
+  .flow .num { display: inline-flex; width: 40px; height: 40px; border-radius: 50%; background: var(--primary); color: white;
+               font-weight: bold; font-size: 18px; align-items: center; justify-content: center; margin-bottom: 10px; }
+  .flow b { display: block; font-size: 16px; margin-bottom: 6px; }
+  .flow p { font-size: 13.5px; color: var(--muted); }
+
+  /* Features */
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 22px; }
+  .card .icon { font-size: 28px; }
+  .card b { display: block; margin: 8px 0 4px; font-size: 16px; }
+  .card p { font-size: 13.5px; color: var(--muted); }
+
+  /* Pricing */
+  table.price { border-collapse: collapse; width: 100%; max-width: 720px; margin: 0 auto; background: white; }
+  table.price th, table.price td { border: 1px solid var(--border); padding: 10px 16px; text-align: center; font-size: 14.5px; }
+  table.price th { background: var(--primary-light); }
+  table.price td:first-child { text-align: left; }
+  .price-tag { text-align: center; margin-top: 20px; font-size: 15px; }
+  .price-tag b { font-size: 22px; color: var(--primary-dark); }
+
+  /* FAQ */
+  .faq { max-width: 760px; margin: 0 auto; }
+  .faq details { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 14px 20px; margin-bottom: 10px; }
+  .faq summary { font-weight: bold; cursor: pointer; }
+  .faq p { margin-top: 8px; font-size: 14px; color: var(--muted); }
+
+  footer { background: var(--text); color: #C9D1D9; text-align: center; padding: 28px 20px; font-size: 13px; }
+  footer a { color: #9EC5E8; }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 30px; }
+    .hero .tagline { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="container">
+    <img class="logo" src="assets/icon-256.png" alt="TabanePDF アイコン">
+    <h1>TabanePDF</h1>
+    <div class="tagline">バラバラの書類を、1冊のPDFに。</div>
+    <div class="sub">Word・Excel・PowerPoint・PDFの混在フォルダを、しおり・ページ番号付きの1冊へ — 2クリックで。</div>
+    <a class="cta" href="#" id="store-link">🛒 Microsoft Store で入手（近日公開）</a>
+    <div class="cta-note">Windows 10 / 11 対応・基本機能は無料</div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <h2>「1つのPDFにまとめて提出」— その作業、まだ手でやりますか？</h2>
+    <p class="lead">工事完成図書、官公庁への申請書類、経理の証憑綴り、会議資料の一冊化。<br>TabanePDFなら、フォルダを渡すだけです。</p>
+    <img class="shot" src="assets/screenshot-2.png" alt="TabanePDFのメイン画面。Word・Excel・PowerPoint・PDFを変換し結合が完了した状態">
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>使い方は3ステップ</h2>
+    <p class="lead">初回起動時のサンプル体験で、30秒で完成イメージを確認できます。</p>
+    <div class="flow">
+      <div class="step"><span class="num">1</span><b>フォルダをドロップ</b><p>書類が入ったフォルダをドラッグ&ドロップ。Word・Excel・PowerPoint・PDFが混ざっていてもOK。</p></div>
+      <div class="step"><span class="num">2</span><b>PDF変換</b><p>チェックしたファイルをまとめてPDF化。ページ・シート・スライドの範囲指定も可能。</p></div>
+      <div class="step"><span class="num">3</span><b>PDF結合</b><p>並び順どおりに1冊に結合。しおり・ページ番号・ヘッダフッタも同時に。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>機能</h2>
+    <div class="grid">
+      <div class="card"><span class="icon">📄</span><b>Office文書の一括PDF変換</b><p>Word・Excel・PowerPointをまとめてPDFに。「1,3,5-7」のような範囲指定変換にも対応。</p></div>
+      <div class="card"><span class="icon">🔖</span><b>しおり自動生成</b><p>ファイル名がそのまま完成PDFの目次に。フォルダ別の階層しおりで大型図書もすっきり。</p></div>
+      <div class="card"><span class="icon">🔢</span><b>ページ番号・ヘッダフッタ</b><p>「1 / 120」形式のページ番号、社名や文書番号のヘッダフッタを全ページへ。位置も調整可能。</p></div>
+      <div class="card"><span class="icon">📁</span><b>プロジェクト管理</b><p>フォルダ・並び順・結合設定をプロジェクトとして保存。毎月の提出書類も設定そのままで再実行。</p></div>
+      <div class="card"><span class="icon">✏️</span><b>一括リネーム</b><p>「001_」等の連番付与や一括置換。しおりには変更後の名前が使われるので、目次づくりが楽。</p></div>
+      <div class="card"><span class="icon">🖨️</span><b>Excel印刷設定の一括適用</b><p>用紙サイズ・向き・「1ページに収める」を複数のExcelにまとめて適用。変換前の体裁調整を時短。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>無料版とPro版</h2>
+    <p class="lead">まずは無料でお試しください。日常的に使うなら、買い切りのProへ。</p>
+    <table class="price">
+      <tr><th>機能</th><th>無料版</th><th>Pro版</th></tr>
+      <tr><td>Office文書のPDF変換</td><td>✅</td><td>✅</td></tr>
+      <tr><td>PDF結合</td><td>10ファイル/回</td><td><b>無制限</b></td></tr>
+      <tr><td>ページ番号</td><td>✅（右上固定）</td><td>✅ 位置・サイズ自由</td></tr>
+      <tr><td>しおり自動生成・階層しおり</td><td>—</td><td>✅</td></tr>
+      <tr><td>ヘッダ・フッタ</td><td>—</td><td>✅</td></tr>
+      <tr><td>Excel印刷設定の一括適用</td><td>—</td><td>✅</td></tr>
+      <tr><td>プロジェクト数</td><td>3個</td><td><b>無制限</b></td></tr>
+    </table>
+    <p class="price-tag">Pro版は <b>¥3,950</b>（買い切り・サブスクなし・追加費用なし）</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>よくある質問</h2>
+    <div class="faq">
+      <details><summary>Microsoft Officeは必要ですか？</summary><p>Word・Excel・PowerPointファイルの変換にはMicrosoft Officeのインストールが必要です。PDFファイルのみの結合・加工はOfficeなしで動作します。</p></details>
+      <details><summary>ファイルが外部に送信されることはありますか？</summary><p>ありません。変換・結合はすべてお使いのPC内で完結します。詳しくは<a href="privacy.html">プライバシーポリシー</a>をご覧ください。</p></details>
+      <details><summary>Pro版はサブスクリプションですか？</summary><p>いいえ、一度のご購入でずっと使える買い切りです。ライセンスはMicrosoftアカウントに紐づくため、PCの買い替え後もそのまま利用できます。</p></details>
+      <details><summary>対応OSは？</summary><p>Windows 10 / 11（64bit）に対応しています。</p></details>
+      <details><summary>不具合を見つけた・要望がある</summary><p>occho222@gmail.com までご連絡ください。エラー発生時は %LOCALAPPDATA%\TabanePDF\logs のログファイルを添付いただくと調査がスムーズです。</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>TabanePDF — バラバラの書類を、1冊に。</p>
+  <p><a href="privacy.html">プライバシーポリシー</a> ｜ © 2024-2026 Masa222</p>
+</footer>
+
+</body>
+</html>
